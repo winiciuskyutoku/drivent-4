@@ -18,6 +18,14 @@ async function getBooking(userId: number){
     }
 }
 
+async function getBookingByUser(userId: number){
+    return await prisma.booking.findFirst({
+        where: {
+            userId
+        }
+    })
+}
+
 async function getBookingByRoom(roomId: number){
     return await prisma.booking.findMany({
         where: {
@@ -51,5 +59,6 @@ export const bookingRepositories = {
     getBooking,
     postBooking,
     changeBooking,
-    getBookingByRoom
+    getBookingByRoom,
+    getBookingByUser
 }

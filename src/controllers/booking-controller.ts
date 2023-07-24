@@ -25,10 +25,9 @@ export async function postBooking(req: AuthenticatedRequest, res: Response){
 
         return res.status(httpStatus.OK).send({bookingId: result.id})
     } catch(err){
-        //if(err.name === 'NotFoundError') return res.status(httpStatus.NOT_FOUND).send(err.message)
-        //if(err.name === 'ForbiddenError') return res.status(httpStatus.FORBIDDEN).send(err.message)
-        //if(err.name === 'RoomWithoutCapacity') return res.status(httpStatus.FORBIDDEN).send(err.message)
-        return res.status(httpStatus.INTERNAL_SERVER_ERROR).send(err.message)
+        if(err.name === 'NotFoundError') return res.status(httpStatus.NOT_FOUND).send(err.message)
+        if(err.name === 'ForbiddenError') return res.status(httpStatus.FORBIDDEN).send(err.message)
+        if(err.name === 'RoomWithoutCapacity') return res.status(httpStatus.FORBIDDEN).send(err.message)
     }
 }
 
@@ -43,7 +42,7 @@ export async function changeBooking(req: AuthenticatedRequest, res: Response){
 
         return res.send({bookingId: result.id})
     } catch(err){
-        //if(err.name === 'NotFoundError') return res.status(httpStatus.NOT_FOUND).send(err.message)
+        if(err.name === 'NotFoundError') return res.status(httpStatus.NOT_FOUND).send(err.message)
         return res.status(httpStatus.FORBIDDEN).send(err.message)
     }
 }

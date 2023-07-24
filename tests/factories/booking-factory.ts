@@ -21,3 +21,13 @@ export function fakeBooking(hasCapacity: boolean){
         }
     }
 }
+
+export function fakeBookingWithoutRoom(){
+    return {
+        id: faker.datatype.number(),
+        userId: faker.datatype.number(),
+        roomId: faker.datatype.number(),
+        createdAt: new Date(),
+        updatedAt: new Date()
+    }
+}

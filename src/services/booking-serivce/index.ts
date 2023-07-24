@@ -35,7 +35,7 @@ async function postBooking(roomId: number, userId: number){
 }
 
 async function changeBooking(roomId: number, userId: number, bookingId: number){
-    const checkBooking = await bookingRepositories.getBooking(userId)
+    const checkBooking = await bookingRepositories.getBookingByUser(userId)
     if(!checkBooking) throw notFoundError()
 
     const checkRoom = await roomRepositories.getRoomById(roomId)

@@ -1,7 +1,7 @@
 import { bookingRepositories } from "@/repositories/booking-repository"
 import enrollmentRepository from "@/repositories/enrollment-repository"
 import { bookingServices } from "@/services/booking-serivce"
-import { enrollmentFactory, fakeBooking, fakeRoom, fakeTicket } from "../factories"
+import { enrollmentFactory, fakeBooking, fakeBookingWithoutRoom, fakeRoom, fakeTicket } from "../factories"
 import ticketsRepository from "@/repositories/tickets-repository"
 import { roomRepositories } from "@/repositories/room-respository"
 
@@ -104,7 +104,7 @@ describe('UNIT POST /booking', () => {
 
 describe('UNIT PUT /booking/:bookingId', () => {
     it('Should respond with status 404 when user has no booking/reservation', async () => {
-        jest.spyOn(bookingRepositories, 'getBooking').mockResolvedValue(null)
+        jest.spyOn(bookingRepositories, 'getBookingByUser').mockResolvedValue(null)
 
         const response = bookingServices.changeBooking(1, 1, 1)
         expect(response).rejects.toEqual({
@@ -114,7 +114,7 @@ describe('UNIT PUT /booking/:bookingId', () => {
     })
 
     it('Should respond with status 404 there is no room', async () => {
-        jest.spyOn(bookingRepositories, 'getBooking').mockResolvedValue(fakeBooking(true))
+        jest.spyOn(bookingRepositories, 'getBookingByUser').mockResolvedValue(fakeBookingWithoutRoom())
         jest.spyOn(roomRepositories, 'getRoomById').mockResolvedValue(null)
 
         const response = bookingServices.changeBooking(1, 1, 1)
@@ -125,7 +125,7 @@ describe('UNIT PUT /booking/:bookingId', () => {
     })
 
     it('Should respond with status 403 when room does not have capacity', async () => {
-        jest.spyOn(bookingRepositories, 'getBooking').mockResolvedValue(fakeBooking(true))
+        jest.spyOn(bookingRepositories, 'getBookingByUser').mockResolvedValueOnce(fakeBookingWithoutRoom())
         jest.spyOn(roomRepositories, 'getRoomById').mockResolvedValue(fakeRoom(false))
         jest.spyOn(bookingRepositories, 'getBookingByRoom').mockResolvedValue([])
 
