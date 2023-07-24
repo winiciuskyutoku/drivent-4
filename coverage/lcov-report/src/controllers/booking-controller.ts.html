@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">62.85% </span>
+                <span class="strong">88% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>22/35</span>
+                <span class='fraction'>22/25</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/5</span>
+                <span class='fraction'>0/0</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">73.33% </span>
+                <span class="strong">88% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>22/30</span>
+                <span class='fraction'>22/25</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -111,8 +111,7 @@
 <a name='L46'></a><a href='#L46'>46</a>
 <a name='L47'></a><a href='#L47'>47</a>
 <a name='L48'></a><a href='#L48'>48</a>
-<a name='L49'></a><a href='#L49'>49</a>
-<a name='L50'></a><a href='#L50'>50</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L49'></a><a href='#L49'>49</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">11x</span>
@@ -125,7 +124,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -140,9 +138,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -158,7 +156,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { AuthenticatedRequest } from "@/middlewares";
@@ -174,7 +172,6 @@ export async function getBooking(req: AuthenticatedRequest, res: Response){
 &nbsp;
         return res.send(result)
     } catch(err){
-<span class="cstat-no" title="statement not covered" >        <span class="missing-if-branch" title="if path not taken" >I</span>if(err.name === 'NotFoundError') <span class="cstat-no" title="statement not covered" >return res.status(httpStatus.NOT_FOUND).send(err.message)</span></span>
 <span class="cstat-no" title="statement not covered" >        return res.status(httpStatus.NOT_FOUND).send(err.message)</span>
     }
 }
@@ -189,9 +186,9 @@ export async function postBooking(req: AuthenticatedRequest, res: Response){
 &nbsp;
         return res.status(httpStatus.OK).send({bookingId: result.id})
     } catch(err){
-<span class="cstat-no" title="statement not covered" >        <span class="missing-if-branch" title="if path not taken" >I</span>if(err.name === 'NotFoundError') <span class="cstat-no" title="statement not covered" >return res.status(httpStatus.NOT_FOUND).send(err.message)</span></span>
-<span class="cstat-no" title="statement not covered" >        <span class="missing-if-branch" title="if path not taken" >I</span>if(err.name === 'ForbiddenError') <span class="cstat-no" title="statement not covered" >return res.status(httpStatus.FORBIDDEN).send(err.message)</span></span>
-<span class="cstat-no" title="statement not covered" >        <span class="missing-if-branch" title="if path not taken" >I</span>if(err.name === 'RoomWithoutCapacity') <span class="cstat-no" title="statement not covered" >return res.status(httpStatus.FORBIDDEN).send(err.message)</span></span>
+        //if(err.name === 'NotFoundError') return res.status(httpStatus.NOT_FOUND).send(err.message)
+        //if(err.name === 'ForbiddenError') return res.status(httpStatus.FORBIDDEN).send(err.message)
+        //if(err.name === 'RoomWithoutCapacity') return res.status(httpStatus.FORBIDDEN).send(err.message)
 <span class="cstat-no" title="statement not covered" >        return res.status(httpStatus.INTERNAL_SERVER_ERROR).send(err.message)</span>
     }
 }
@@ -207,7 +204,7 @@ export async function changeBooking(req: AuthenticatedRequest, res: Response){
 &nbsp;
         return res.send({bookingId: result.id})
     } catch(err){
-<span class="cstat-no" title="statement not covered" >        <span class="missing-if-branch" title="if path not taken" >I</span>if(err.name === 'NotFoundError') <span class="cstat-no" title="statement not covered" >return res.status(httpStatus.NOT_FOUND).send(err.message)</span></span>
+        //if(err.name === 'NotFoundError') return res.status(httpStatus.NOT_FOUND).send(err.message)
 <span class="cstat-no" title="statement not covered" >        return res.status(httpStatus.FORBIDDEN).send(err.message)</span>
     }
 }</pre></td></tr></table></pre>
@@ -217,7 +214,7 @@ export async function changeBooking(req: AuthenticatedRequest, res: Response){
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Mon Jul 24 2023 12:36:22 GMT-0300 (Brasilia Standard Time)
+                at Mon Jul 24 2023 13:05:26 GMT-0300 (Brasilia Standard Time)
             </div>
         <script src="../../prettify.js"></script>
         <script>
