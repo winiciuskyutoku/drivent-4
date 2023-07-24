@@ -1111,7 +1111,7 @@ BRF:2
 BRH:2
 end_of_record
 TN:
-SF:src/services/booking-serivce/error.ts
+SF:src/services/booking-service/error.ts
 FN:3,roomWithourCapacity
 FNF:1
 FNH:1
@@ -1124,7 +1124,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src/services/booking-serivce/index.ts
+SF:src/services/booking-service/index.ts
 FN:9,getBooking
 FN:16,postBooking
 FN:37,changeBooking

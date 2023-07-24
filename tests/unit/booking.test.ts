@@ -1,6 +1,6 @@
 import { bookingRepositories } from "@/repositories/booking-repository"
 import enrollmentRepository from "@/repositories/enrollment-repository"
-import { bookingServices } from "@/services/booking-serivce"
+import { bookingServices } from "@/services/booking-service"
 import { enrollmentFactory, fakeBooking, fakeBookingWithoutRoom, fakeRoom, fakeTicket } from "../factories"
 import ticketsRepository from "@/repositories/tickets-repository"
 import { roomRepositories } from "@/repositories/room-respository"

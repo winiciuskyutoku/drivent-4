@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1690221529397" clover="3.2.0">
-  <project timestamp="1690221529397" name="All files">
+<coverage generated="1690224498667" clover="3.2.0">
+  <project timestamp="1690224498667" name="All files">
     <metrics statements="592" coveredstatements="560" conditionals="86" coveredconditionals="62" methods="100" coveredmethods="92" elements="778" coveredelements="714" complexity="0" loc="592" ncloc="592" packages="27" files="66" classes="66"/>
     <package name="src">
       <metrics statements="22" coveredstatements="16" conditionals="2" coveredconditionals="0" methods="5" coveredmethods="2"/>
@@ -648,14 +648,14 @@
         <line num="60" count="11" type="stmt"/>
       </file>
     </package>
-    <package name="src.services.booking-serivce">
+    <package name="src.services.booking-service">
       <metrics statements="33" coveredstatements="33" conditionals="11" coveredconditionals="11" methods="4" coveredmethods="4"/>
-      <file name="error.ts" path="/home/winicius/Desktop/drivent-4/src/services/booking-serivce/error.ts">
+      <file name="error.ts" path="/home/winicius/Desktop/drivent-4/src/services/booking-service/error.ts">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="3" count="12" type="stmt"/>
         <line num="4" count="4" type="stmt"/>
       </file>
-      <file name="index.ts" path="/home/winicius/Desktop/drivent-4/src/services/booking-serivce/index.ts">
+      <file name="index.ts" path="/home/winicius/Desktop/drivent-4/src/services/booking-service/index.ts">
         <metrics statements="31" coveredstatements="31" conditionals="11" coveredconditionals="11" methods="3" coveredmethods="3"/>
         <line num="1" count="12" type="stmt"/>
         <line num="2" count="12" type="stmt"/>
