@@ -279,7 +279,7 @@ describe('PUT /booking', () => {
   });
 
   describe('when token is valid', () => {
-    it('should respond with status 404 when user has no booking', async () => {
+    it('should respond with status 403 when user has no booking', async () => {
       const user = await createUser()
       const token = await generateValidToken(user)
       const enrollment = await createEnrollmentWithAddress(user)
@@ -293,7 +293,7 @@ describe('PUT /booking', () => {
 
       const body = { roomId: createdRoom2.id }
       const response = await server.put(`/booking/10000`).set('Authorization', `Bearer ${token}`).send(body)
-      expect(response.status).toEqual(httpStatus.NOT_FOUND)
+      expect(response.status).toEqual(httpStatus.FORBIDDEN)
     })
 
     it('should respond with status 404 when given room id does not exist', async () => {

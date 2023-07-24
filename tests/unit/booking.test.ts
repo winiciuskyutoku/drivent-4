@@ -103,13 +103,13 @@ describe('UNIT POST /booking', () => {
 })
 
 describe('UNIT PUT /booking/:bookingId', () => {
-    it('Should respond with status 404 when user has no booking/reservation', async () => {
+    it('Should respond with status 403 when user has no booking/reservation', async () => {
         jest.spyOn(bookingRepositories, 'getBookingByUser').mockResolvedValue(null)
 
         const response = bookingServices.changeBooking(1, 1, 1)
         expect(response).rejects.toEqual({
-            name: 'NotFoundError',
-            message: 'No result for this search!',
+            name: 'ForbiddenError',
+            message: 'Forbidden Error',
         })
     })
 
