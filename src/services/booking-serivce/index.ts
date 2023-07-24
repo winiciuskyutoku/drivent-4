@@ -25,7 +25,9 @@ async function postBooking(roomId: number, userId: number){
     
     const checkRoom = await roomRepositories.getRoomById(roomId)
     if(!checkRoom) throw notFoundError()
-    if(checkRoom.capacity === 0) throw roomWithourCapacity()
+
+    const getBookings = await bookingRepositories.getBookingByRoom(roomId)
+    if(checkRoom.capacity === getBookings.length) throw roomWithourCapacity()
 
     const result =  await bookingRepositories.postBooking(roomId, userId)
 
@@ -38,7 +40,9 @@ async function changeBooking(roomId: number, userId: number, bookingId: number){
 
     const checkRoom = await roomRepositories.getRoomById(roomId)
     if(!checkRoom) throw notFoundError()
-    if(checkRoom.capacity === 0) throw roomWithourCapacity()
+
+    const getBookings = await bookingRepositories.getBookingByRoom(roomId)
+    if(checkRoom.capacity === getBookings.length) throw roomWithourCapacity()
 
     return await bookingRepositories.changeBooking(roomId, userId, bookingId)
 }

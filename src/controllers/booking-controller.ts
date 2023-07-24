@@ -12,7 +12,7 @@ export async function getBooking(req: AuthenticatedRequest, res: Response){
         return res.send(result)
     } catch(err){
         if(err.name === 'NotFoundError') return res.status(httpStatus.NOT_FOUND).send(err.message)
-        return res.status(httpStatus.INTERNAL_SERVER_ERROR).send(err.message)
+        return res.status(httpStatus.NOT_FOUND).send(err.message)
     }
 }
 

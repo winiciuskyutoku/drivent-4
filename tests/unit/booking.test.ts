@@ -92,6 +92,7 @@ describe('UNIT POST /booking', () => {
         jest.spyOn(enrollmentRepository, 'findWithAddressByUserId').mockResolvedValue(enrollmentFactory())
         jest.spyOn(ticketsRepository, 'findTicketByEnrollmentId').mockResolvedValue(fakeTicket(false, true, true))
         jest.spyOn(roomRepositories, 'getRoomById').mockResolvedValue(fakeRoom(false))
+        jest.spyOn(bookingRepositories, 'getBookingByRoom').mockResolvedValue([])
 
         const response = bookingServices.postBooking(1, 1)
         expect(response).rejects.toEqual({
@@ -126,6 +127,7 @@ describe('UNIT PUT /booking/:bookingId', () => {
     it('Should respond with status 403 when room does not have capacity', async () => {
         jest.spyOn(bookingRepositories, 'getBooking').mockResolvedValue(fakeBooking(true))
         jest.spyOn(roomRepositories, 'getRoomById').mockResolvedValue(fakeRoom(false))
+        jest.spyOn(bookingRepositories, 'getBookingByRoom').mockResolvedValue([])
 
         const response = bookingServices.changeBooking(1, 1, 1)
         expect(response).rejects.toEqual({
