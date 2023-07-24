@@ -32,6 +32,34 @@ export async function createEnrollmentWithAddress(user?: User) {
   });
 }
 
+export function enrollmentFactory() {
+  return {
+    id: 1,
+    name: faker.name.firstName(),
+    cpf: faker.datatype.number().toString(),
+    birthday: new Date(),
+    phone: faker.datatype.number().toString(),
+    userId: faker.datatype.number(),
+    createdAt: new Date(),
+    updatedAt: new Date(),
+    Address: [
+      {
+        id: 1,
+        cep: faker.address.zipCode(),
+        street: faker.address.streetName(),
+        city: faker.address.cityName(),
+        state: faker.address.state(),
+        number: faker.datatype.number().toString(),
+        neighborhood: faker.name.findName(),
+        addressDetail: faker.address.secondaryAddress(),
+        enrollmentId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+    ],
+  };
+}
+
 export function createhAddressWithCEP() {
   return {
     logradouro: 'Avenida Brigadeiro Faria Lima',
